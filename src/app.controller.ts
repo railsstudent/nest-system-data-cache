@@ -1,10 +1,10 @@
-import { Salutation } from './app.interfaces'
-import { Controller, Get } from '@nestjs/common'
+import { DataMap, Salutation } from './app.interfaces'
+import { Controller, Get, Inject } from '@nestjs/common'
 import { AppService } from './app.service'
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService, @Inject('DataMap') private dataMap: DataMap) {}
 
   @Get()
   getHello(): string {
@@ -12,7 +12,9 @@ export class AppController {
   }
 
   @Get('salutations')
-  getSalutations(): Promise<Salutation> {
-    return this.appService.getSalutations()
+  async getSalutations(): Promise<Salutation> {
+    // return this.appService.getSalutations()
+    const { salutations } = this.dataMap
+    return salutations
   }
 }
