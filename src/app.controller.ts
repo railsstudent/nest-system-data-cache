@@ -1,3 +1,4 @@
+import { Salutation } from './app.interfaces'
 import { Controller, Get } from '@nestjs/common'
 import { AppService } from './app.service'
 
@@ -8,5 +9,10 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello()
+  }
+
+  @Get('salutations')
+  getSalutations(): Promise<Salutation> {
+    return this.appService.getSalutations()
   }
 }
