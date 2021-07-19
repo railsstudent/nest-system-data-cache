@@ -13,7 +13,6 @@ export class AppController {
 
   @Get('salutations')
   async getSalutations(): Promise<Salutation> {
-    // return this.appService.getSalutations()
     const { salutations } = this.dataMap
     return salutations
   }

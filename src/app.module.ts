@@ -14,5 +14,6 @@ const DataMapFactory = {
   imports: [],
   controllers: [AppController],
   providers: [AppService, DataMapFactory],
+  exports: [DataMapFactory],
 })
 export class AppModule {}
