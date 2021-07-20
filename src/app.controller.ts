@@ -16,4 +16,9 @@ export class AppController {
     const { salutations } = this.dataMap
     return salutations
   }
+
+  @Get('salutations-realtime')
+  async getRealtimeSalutations(): Promise<Salutation> {
+    return this.appService.getSalutations()
+  }
 }
