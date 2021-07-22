@@ -10,7 +10,7 @@ export class AppService {
   async getSalutations(): Promise<Salutation> {
     const salutations = ['Mr.', 'Mrs.', 'Miss']
     return new Promise((resolve) => setTimeout(resolve, 2000)).then(() => {
-      console.log('Wait 2 seconds before returning saluations array')
+      console.log('Wait 2 seconds before returning salutations array')
       const now = Date.now()
       return {
         now,
